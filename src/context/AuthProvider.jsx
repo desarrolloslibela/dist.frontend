@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem("token") || sessionStorage.getItem("token");
     if (token) {
       try {
-        await api.post("/api/auth/logout", {}, { headers: { Authorization: `Bearer ${token}` } });
+        await api.post(API_ROUTES.AUTH.LOGOUT, {}, { headers: { Authorization: `Bearer ${token}` } });
       } catch (error) {
         console.error("Error en logout:", error.response?.data || error.message);
       }
